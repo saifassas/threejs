@@ -4,15 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <title>My Three.js Portfolio</title>
+
+    <style>
+        /* ------------------- GLOBAL STYLE ------------------- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: #0d0d0d;
+            /* Dark background */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* ------------------- CONTAINER ------------------- */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #6a00ff, #00eaff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* ------------------- LINKS LIST ------------------- */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            padding: 14px 20px;
+            display: inline-block;
+            width: 100%;
+            border-radius: 10px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            transition: 0.3s ease;
+        }
+
+        a:hover {
+            background: linear-gradient(90deg, #6a00ff, #00eaff);
+            color: #0d0d0d;
+            transform: translateY(-3px);
+            border-color: transparent;
+        }
+
+        /* ------------------- SMOOTH APPEAR ANIMATION ------------------- */
+        .container {
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Welcome to My Three.js Projects</h1>
-    <ul>
-        <!-- <li><a href="/project1/">Project 1: Basic Cube</a></li> --> <!-- Uncomment if project1 exists -->
-        <li><a href="/threejs/project2/">Project 2: Animated Sphere</a></li>
-        <!-- Add more links as you create projects -->
-    </ul>
+    <div class="container">
+        <h1>My Three.js Projects</h1>
+        <ul>
+            <!-- <li><a href="/project1/">Project 1: Basic Cube</a></li> -->
+            <li><a href="/threejs/project2/">Project 2: Animated Sphere</a></li>
+            <!-- Add more links as you create projects -->
+        </ul>
+    </div>
 </body>
 
 </html>
