@@ -6,39 +6,51 @@
     <title>My Three.js Portfolio</title>
 
     <style>
-        /* ------------------- GLOBAL STYLE ------------------- */
         body {
             margin: 0;
-            padding: 0;
             font-family: "Poppins", sans-serif;
             background: #0d0d0d;
-            /* Dark background */
-            color: #ffffff;
+            color: white;
+        }
+
+        /* STARFIELD CONTAINER */
+        .starfield {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
         }
 
-        /* ------------------- CONTAINER ------------------- */
+        /* ORIGIN (INVISIBLE BUT REQUIRED) */
+        .starfield-origin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        /* CONTENT */
         .container {
             text-align: center;
             max-width: 600px;
             width: 90%;
-            padding: 20px;
+            z-index: 1;
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            font-weight: 600;
-            letter-spacing: 1px;
             background: linear-gradient(90deg, #6a00ff, #00eaff);
             -webkit-background-clip: text;
             color: transparent;
         }
 
-        /* ------------------- LINKS LIST ------------------- */
         ul {
             list-style: none;
             padding: 0;
@@ -49,49 +61,59 @@
         }
 
         a {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1.2rem;
+            display: block;
             padding: 14px 20px;
-            display: inline-block;
-            width: 100%;
             border-radius: 10px;
             background: #1a1a1a;
             border: 1px solid #333;
+            color: white;
+            text-decoration: none;
             transition: 0.3s ease;
         }
 
         a:hover {
             background: linear-gradient(90deg, #6a00ff, #00eaff);
-            color: #0d0d0d;
+            color: black;
             transform: translateY(-3px);
-            border-color: transparent;
-        }
-
-        /* ------------------- SMOOTH APPEAR ANIMATION ------------------- */
-        .container {
-            animation: fadeIn 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>My Three.js Projects</h1>
-        <ul>
-            <li><a href="/threejs/project1/">Project 1: TorusKnot</a></li>
-            <li><a href="/threejs/project2/">Project 2: Animated Sphere</a></li>
-            <li><a href="/threejs/project3/">Project 3: Earth</a></li>
 
-        </ul>
+    <div class="starfield">
+
+        <!-- REQUIRED -->
+        <div class="starfield-origin"></div>
+
+        <!-- CONTENT -->
+        <div class="container">
+            <h1>My Three.js Projects</h1>
+            <ul>
+                <li><a href="/threejs/project1/">Project 1: TorusKnot</a></li>
+                <li><a href="/threejs/project2/">Project 2: Animated Sphere</a></li>
+                <li><a href="/threejs/project3/">Project 3: Earth</a></li>
+            </ul>
+        </div>
+
     </div>
+
+    <!-- STARFIELD LIB -->
+    <script src="starfield.js"></script>
+
+    <!-- INIT -->
+    <script>
+        Starfield.setup({
+            numStars: 350,
+            baseSpeed: 1,
+            trailLength: 0.85,
+            hueJitter: 20,
+            maxAcceleration: 12,
+            canvasColor: "rgb(0,0,0)",
+            starColor: "rgb(255,255,255)"
+        });
+    </script>
+
 </body>
 
 </html>
